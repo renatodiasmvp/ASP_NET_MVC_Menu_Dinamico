@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MVCcomMenuInterativo.Models.ItemDeMenu>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        @{foreach (var item in Model)
+            {
+                if (
+                    (Model.Where
+                    (s => s.ItemPaiId == @item.ItemDeMenuId)
+                    .Count()
+                    ) > 0
+                )
+                {
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@item.NomeDoItem <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                @{foreach (var firstItem in (Model.Where(s => s.ItemPaiId == item.ItemDeMenuId).ToList()))
+                                    {
+                                        <li>
+                                            <a href="#">
+                                            @firstItem.NomeDoItem
+                                            </a>
+                                        </li>
+                                    }
+                                }
+                            </ul>
+                    </li>
+                }
+                else if (@item.ItemPaiId == 0)
+                {
+                    <li>
+                        <a href="#">
+                            @item.NomeDoItem
+                        </a>
+                    </li>
+                }
+
+
+
+
+
+
+            }
+        }
+    </ul>
+</div>
+
+

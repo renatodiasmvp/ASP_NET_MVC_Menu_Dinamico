@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MVCcomMenuInterativo.Models.ItemDeMenu>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Configuração de Menu Dinâmico</h2>
+
+<p>
+    @Html.ActionLink("Novo Item de Menu", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemPaiId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeDoItem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeDoController)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeDaAction)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemPaiId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeDoItem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeDoController)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeDaAction)
+        </td>
+        <td>
+            @Html.ActionLink("Alterar", "Edit", new { id=item.ItemDeMenuId }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ItemDeMenuId }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.ItemDeMenuId })
+        </td>
+    </tr>
+}
+
+</table>

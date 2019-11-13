@@ -1,0 +1,50 @@
+﻿@model MVCcomMenuInterativo.Models.ItemDeMenu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalhes de um Item de Menu</h2>
+
+<div>
+    <h4>Item de Menu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemPaiId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemPaiId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeDoItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeDoItem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeDoController)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeDoController)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeDaAction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeDaAction)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.ItemDeMenuId }) |
+    @Html.ActionLink("Retorna a Lista de Itens de Menu", "Index")
+</p>
